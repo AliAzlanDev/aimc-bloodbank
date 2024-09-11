@@ -8,12 +8,23 @@ import { env } from "@/env.mjs";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { db, users } from "@/schema";
+import { eq } from "drizzle-orm";
+import { buttonVariants } from "@/components/ui/button";
+import { LockClosedIcon } from "@radix-ui/react-icons";
 
 export default async function Page() {
   const session = await auth();
   if (!session) {
     redirect("/login");
-    return <div></div>;
+    return null;
+  }
+  const role = await db
+    .select({ role: users.role })
+    .from(users)
+    .where(eq(users.email, session.user?.email ?? ""));
+  if (role[0].role !== "ADMIN") {
+    return <NotAuthorized />;
   }
 
   return (
@@ -77,6 +88,23 @@ function TableSkeleton() {
         <Skeleton className="h-8 w-[200px]" />
         <Skeleton className="h-8 w-[200px]" />
       </div>
+    </div>
+  );
+}
+
+function NotAuthorized() {
+  return (
+    <div className="flex flex-col items-center justify-center h-[60vh] text-center container-x  max-w-md mt-10 ">
+      <LockClosedIcon className="h-16 w-16 text-primary mb-4" />
+
+      <h2 className="text-2xl font-bold mb-2">Not Authorized</h2>
+      <p className=" text-muted-foreground mb-8">
+        This database is only available to the authorized members of the
+        program.
+      </p>
+      <a href="/" className={buttonVariants()}>
+        Go to Home
+      </a>
     </div>
   );
 }
