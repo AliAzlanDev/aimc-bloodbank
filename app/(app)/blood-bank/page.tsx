@@ -17,7 +17,6 @@ export default async function Page() {
   const session = await auth();
   if (!session) {
     redirect("/login");
-    return null;
   }
   const role = await db
     .select({ role: users.role })

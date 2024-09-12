@@ -51,10 +51,6 @@ export function BloodBankTable<TData, TValue>({
       columnVisibility,
       rowSelection,
       columnFilters,
-      pagination: {
-        pageIndex: 0,
-        pageSize: 50,
-      },
     },
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
@@ -67,6 +63,11 @@ export function BloodBankTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     getFacetedRowModel: getFacetedRowModel(),
     getFacetedUniqueValues: getFacetedUniqueValues(),
+    initialState: {
+      pagination: {
+        pageSize: 50,
+      },
+    },
   });
 
   return (
