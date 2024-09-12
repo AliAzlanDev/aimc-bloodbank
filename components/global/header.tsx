@@ -62,7 +62,6 @@ export default function Header({ children }: { children?: React.ReactNode }) {
             >
               Blood Bank
             </Link>
-            <Button text="Login" />
           </nav>
         </div>
       )}

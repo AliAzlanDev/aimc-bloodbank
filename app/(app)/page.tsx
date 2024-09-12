@@ -5,8 +5,6 @@ import { BloodBankTable } from "@/components/blood-bank-table/blood-bank-table";
 import { columns } from "@/components/blood-bank-table/columns";
 import { BloodBank } from "@/components/blood-bank-table/data/schema";
 
-export const dynamic = "force-static";
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
