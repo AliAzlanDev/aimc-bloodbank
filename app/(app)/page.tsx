@@ -81,7 +81,7 @@ export default function Home() {
 
 const sampleBloodBankData: BloodBank[] = [
   {
-    Name: "Armaghan Zulfiqar",
+    Name: "Armghan Zulfiqar",
     "Father Name": "Zulfiqar Ali",
     "Roll No": "144",
     Gender: "Male",
