@@ -4,6 +4,7 @@ import { ProgressBarLink } from "@/components/global/progress-bar";
 import { BloodBankTable } from "@/components/blood-bank-table/blood-bank-table";
 import { columns } from "@/components/blood-bank-table/columns";
 import { BloodBank } from "@/components/blood-bank-table/data/schema";
+import TeamSection from "@/components/team";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="bg-primary text-white py-20 text-center container-x">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            AIMC Blood Bank
+            AIMC Blood Donor Database
           </h1>
           <p className="text-xl md:text-2xl mb-8">
             Centralized Blood Group Data of AIMC Medical Students
@@ -36,6 +37,8 @@ export default function Home() {
               addressing the challenges of blood donation for patients. We
               maintain a centralized database of blood group information for all
               AIMC medical students to ensure timely and efficient donations.
+              The AIMC students can contact the representative in case they need
+              blood for their parents and siblings only.
             </p>
           </div>
         </section>
@@ -73,6 +76,9 @@ export default function Home() {
             A sample from our database
           </h2>
           <BloodBankTable data={sampleBloodBankData} columns={columns} />
+        </div>
+        <div className="py-16 container-x border-t">
+          <TeamSection />
         </div>
       </main>
     </div>
