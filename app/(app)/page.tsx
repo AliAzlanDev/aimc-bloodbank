@@ -96,6 +96,7 @@ const sampleBloodBankData: BloodBank[] = [
     "Willing To Donate": "Yes",
     "Contact No": "03XX-XXXXXXX",
     "Last Donation Date": "2024-MM-DD",
+    "Missing Data": "No",
   },
   {
     Name: "Abdul Wahab Mirza",
@@ -107,6 +108,7 @@ const sampleBloodBankData: BloodBank[] = [
     "Willing To Donate": "Yes",
     "Contact No": "03XX-XXXXXXX",
     "Last Donation Date": "2024-MM-DD",
+    "Missing Data": "No",
   },
   {
     Name: "Ali Azlan",
@@ -118,5 +120,6 @@ const sampleBloodBankData: BloodBank[] = [
     "Willing To Donate": "Yes",
     "Contact No": "03XX-XXXXXXX",
     "Last Donation Date": "2024-MM-DD",
+    "Missing Data": "No",
   },
 ];

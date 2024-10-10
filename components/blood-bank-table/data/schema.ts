@@ -12,6 +12,7 @@ export const bloodBankSchema = z.object({
   "Willing To Donate": z.string(),
   "Contact No": z.string(),
   "Last Donation Date": z.string(),
+  "Missing Data": z.string(),
 });
 
 export type BloodBank = z.infer<typeof bloodBankSchema>;

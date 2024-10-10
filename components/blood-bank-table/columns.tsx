@@ -3,7 +3,13 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
 import { DataTableColumnHeader } from "./column-header";
-import { batches, bloodGroups, gender, WillingToDonate } from "./data/filters";
+import {
+  batches,
+  bloodGroups,
+  gender,
+  missingData,
+  WillingToDonate,
+} from "./data/filters";
 import { BloodBank } from "./data/schema";
 
 export const columns: ColumnDef<BloodBank>[] = [
@@ -153,6 +159,7 @@ export const columns: ColumnDef<BloodBank>[] = [
       const batch = WillingToDonate.find(
         (batch) => batch.value === row.getValue("Willing To Donate")
       );
+      console.log(batch);
 
       if (!batch) {
         return null;
@@ -173,6 +180,36 @@ export const columns: ColumnDef<BloodBank>[] = [
     enableSorting: false,
   },
   {
+    accessorKey: "Missing Data",
+    header: ({ column }) => (
+      <DataTableColumnHeader
+        column={column}
+        title="Missing Data"
+        className="hidden"
+      />
+    ),
+    cell: ({ row }) => {
+      const batch = missingData.find(
+        (batch) => batch.value === row.getValue("Missing Data")
+      );
+      console.log(batch);
+
+      if (!batch) {
+        return null;
+      }
+
+      return (
+        <div className="hidden">
+          <span>{batch.label}</span>
+        </div>
+      );
+    },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
+    enableSorting: false,
+  },
+  {
     accessorKey: "Contact No",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Contact No" />
@@ -182,6 +219,7 @@ export const columns: ColumnDef<BloodBank>[] = [
     ),
     enableSorting: false,
   },
+
   {
     accessorKey: "Last Donation Date",
     header: ({ column }) => (

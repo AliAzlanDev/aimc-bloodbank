@@ -53,17 +53,24 @@ const getBloodBankData = async (): Promise<BloodBank[]> => {
   const sheet = doc.sheetsByIndex[0];
   const rows = await sheet.getRows();
 
-  const bloodBankData: BloodBank[] = rows.map((row) => ({
-    Name: row.get("Name") || "",
-    "Father Name": row.get("Father Name") || "",
-    "Roll No": row.get("Roll No") || "",
-    Gender: row.get("Gender") || "",
-    "Blood Group": row.get("Blood Group") || "",
-    Batch: row.get("Batch") || "",
-    "Willing To Donate": row.get("Willing To Donate") || "No",
-    "Contact No": row.get("Contact No") || "",
-    "Last Donation Date": "",
-  }));
+  const bloodBankData: BloodBank[] = rows.map((row) => {
+    const dataIsMissing =
+      row.get("Willing To Donate") === "" ||
+      row.get("Contact No") === "" ||
+      row.get("Blood Group") === "";
+    return {
+      Name: row.get("Name") || "",
+      "Father Name": row.get("Father Name") || "",
+      "Roll No": row.get("Roll No") || "",
+      Gender: row.get("Gender") || "",
+      "Blood Group": row.get("Blood Group") || "",
+      Batch: row.get("Batch") || "",
+      "Willing To Donate": row.get("Willing To Donate") || "",
+      "Contact No": row.get("Contact No") || "",
+      "Last Donation Date": "",
+      "Missing Data": dataIsMissing ? "Yes" : "No",
+    };
+  });
 
   return bloodBankData;
 };

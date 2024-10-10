@@ -7,14 +7,9 @@ import BloodABNIcon from "@/components/icons/blood-ab-n";
 import BloodOPIcon from "@/components/icons/blood-o-p";
 import BloodONIcon from "@/components/icons/blood-o-n";
 import {
-  ArrowDownIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
   CheckCircledIcon,
-  CircleIcon,
   CrossCircledIcon,
   QuestionMarkCircledIcon,
-  StopwatchIcon,
 } from "@radix-ui/react-icons";
 import MaleIcon from "@/components/icons/male";
 import FemaleIcon from "@/components/icons/female";
@@ -95,6 +90,19 @@ export const WillingToDonate = [
     label: "No",
     value: "No",
     icon: CrossCircledIcon,
+  },
+];
+
+export const missingData = [
+  {
+    label: "Yes",
+    value: "Yes",
+    icon: QuestionMarkCircledIcon,
+  },
+  {
+    label: "No",
+    value: "No",
+    icon: CheckCircledIcon,
   },
 ];
 

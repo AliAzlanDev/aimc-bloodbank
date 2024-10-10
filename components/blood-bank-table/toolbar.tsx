@@ -8,7 +8,13 @@ import { Input } from "@/components/ui/input";
 import { DataTableViewOptions } from "./view-options";
 
 import { DataTableFacetedFilter } from "./filter";
-import { batches, bloodGroups, gender, WillingToDonate } from "./data/filters";
+import {
+  batches,
+  bloodGroups,
+  gender,
+  missingData,
+  WillingToDonate,
+} from "./data/filters";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -58,6 +64,13 @@ export function DataTableToolbar<TData>({
             column={table.getColumn("Willing To Donate")}
             title="Willing To Donate"
             options={WillingToDonate}
+          />
+        )}
+        {table.getColumn("Missing Data") && (
+          <DataTableFacetedFilter
+            column={table.getColumn("Missing Data")}
+            title="Missing Data"
+            options={missingData}
           />
         )}
         {isFiltered && (
