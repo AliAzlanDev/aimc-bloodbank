@@ -13,6 +13,10 @@ import type { AdapterAccountType } from "next-auth/adapters";
 
 export const pool = new Pool({
   connectionString: env.POSTGRES_URL,
+  ssl: {
+    rejectUnauthorized: false,
+    ca: env.PG_SSL,
+  },
 });
 
 export const db = drizzle(pool);
