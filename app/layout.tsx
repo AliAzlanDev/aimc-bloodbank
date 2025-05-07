@@ -52,15 +52,17 @@ export default function RootLayout({
                 <div>
                   <p className=" text-sm font-semibold">{siteConfig.name}</p>
                   <p className=" text-xs text-muted-foreground">
-                    &copy; {new Date().getFullYear()}{" "}
+                    &copy; {new Date().getFullYear()}
+                    {". "}Developed by{" "}
                     <a
                       href="https://aliazlan.me"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className=" text-primary"
+                      className=" text-primary underline underline-offset-2"
                     >
                       Ali Azlan
                     </a>
+                    {" (AIMC '27)"}
                   </p>
                 </div>
                 <div className="flex flex-row items-center gap-2">
