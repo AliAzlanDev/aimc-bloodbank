@@ -51,14 +51,14 @@ export default function RootLayout({
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div>
                   <p className=" text-sm font-semibold">{siteConfig.name}</p>
-                  <p className=" text-xs text-muted-foreground">
+                  <p className=" text-sm text-muted-foreground mt-1">
                     &copy; {new Date().getFullYear()}
                     {". "}Developed by{" "}
                     <a
                       href="https://aliazlan.me"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className=" text-primary underline underline-offset-2 hover:font-semibold hover:underline-offset-4"
+                      className=" text-primary underline underline-offset-2 hover:text-primary/70 hover:underline-offset-4"
                     >
                       Ali Azlan
                     </a>
