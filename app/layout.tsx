@@ -58,7 +58,7 @@ export default function RootLayout({
                       href="https://aliazlan.me"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className=" text-primary underline underline-offset-2"
+                      className=" text-primary underline underline-offset-2 hover:font-semibold hover:underline-offset-4"
                     >
                       Ali Azlan
                     </a>
